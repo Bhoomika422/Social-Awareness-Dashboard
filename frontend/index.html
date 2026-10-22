@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Social Awareness Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-inner">
+      <h1>🌍 Social Awareness Dashboard</h1>
+
+      <!-- THEME TOGGLE -->
+      <div class="theme-toggle">
+        <input type="checkbox" id="themeToggle" aria-label="Toggle dark mode" />
+        <label for="themeToggle" title="Toggle dark / light theme">
+          <span class="toggle-track" aria-hidden="true">
+            <span class="toggle-thumb" aria-hidden="true"></span>
+          </span>
+          <span class="toggle-label">Dark</span>
+        </label>
+      </div>
+      <!-- /THEME TOGGLE -->
+
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="top-panel">
+      <div class="form-card">
+        <h2>Report an Issue</h2>
+        <form id="reportForm">
+          <input name="title" placeholder="Enter issue title" required />
+          <textarea name="description" placeholder="Describe the issue" required></textarea>
+          <button type="submit">📤 Submit Report</button>
+        </form>
+      </div>
+
+      <div class="chart-card">
+        <h2>Category Overview</h2>
+        <canvas id="categoryChart"></canvas>
+        <button id="refreshBtn" class="refresh-btn">🔄 Refresh Data</button>
+      </div>
+    </section>
+
+    <section class="reports-section">
+      <h2>Recent Reports</h2>
+      <div id="reports" class="reports-grid"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Developed with ❤️ for Social Awareness</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

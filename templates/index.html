@@ -1,0 +1,52 @@
+<!-- templates/index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Social Awareness Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-inner">
+      <h1>🌍 Social Awareness Dashboard</h1>
+      <div class="nav-actions">
+        <a class="admin-link" href="{{ url_for('admin_login') }}">Admin</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="top-panel">
+      <div class="form-card">
+        <h2>Report an Issue</h2>
+        <form id="reportForm" enctype="multipart/form-data">
+          <input name="title" placeholder="Enter issue title" required />
+          <textarea name="description" placeholder="Describe the issue" required></textarea>
+          <div class="row">
+            <input name="latitude" placeholder="Latitude (auto if allowed)" />
+            <input name="longitude" placeholder="Longitude (auto if allowed)" />
+          </div>
+          <label class="file-label">Attach image (optional)
+            <input type="file" name="image" accept="image/*" />
+          </label>
+          <button type="submit">📤 Submit Report</button>
+        </form>
+      </div>
+
+      <div class="chart-card">
+        <h2>Category Overview</h2>
+        <canvas id="categoryChart"></canvas>
+        <h3>Recent Reports</h3>
+        <div id="reports" class="reports-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

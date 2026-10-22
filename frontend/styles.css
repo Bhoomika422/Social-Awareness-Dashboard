@@ -1,0 +1,195 @@
+/* === Theme variables (light / dark) === */
+:root{
+  --bg: #f2f6fa;
+  --card-bg: #ffffff;
+  --text: #222222;
+  --muted: #555555;
+  --accent: #00aaff;
+  --accent-2: #00cc99;
+  --form-border: #ccd;
+  --shadow: rgba(0,0,0,0.05);
+  --card-shadow: 0 2px 8px var(--shadow);
+  --card-radius: 10px;
+  --glass: rgba(255,255,255,0.04);
+}
+
+/* Dark theme overrides */
+body.dark {
+  --bg: #0f1720;
+  --card-bg: #0b1220;
+  --text: #e6eef6;
+  --muted: #9fb0c4;
+  --accent: #4fd1c5;
+  --accent-2: #2aa198;
+  --form-border: #233240;
+  --shadow: rgba(0,0,0,0.6);
+  --card-shadow: 0 2px 12px rgba(0,0,0,0.6);
+  --glass: rgba(255,255,255,0.02);
+}
+
+/* === Global Reset === */
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, sans-serif; }
+
+/* === Body === */
+body {
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  transition: background .25s ease, color .25s ease;
+}
+
+/* === Navbar === */
+.navbar {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: white;
+  text-align: center;
+  padding: 12px 10px;
+  box-shadow: var(--card-shadow);
+  position: sticky;
+  top: 0;
+  z-index: 30;
+}
+
+/* inner nav to hold title + toggle */
+.nav-inner {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.nav-inner h1 { font-size: 1.15rem; }
+
+/* Theme toggle styles */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.theme-toggle input { display: none; }
+
+.theme-toggle label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+  color: white;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.toggle-track {
+  width: 48px;
+  height: 26px;
+  background: rgba(255,255,255,0.18);
+  border-radius: 999px;
+  display: inline-block;
+  position: relative;
+  transition: background .2s ease;
+  padding: 3px;
+}
+
+.toggle-thumb {
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  display: block;
+  transform: translateX(0);
+  transition: transform .2s cubic-bezier(.2,.9,.2,1), background .2s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+/* checked state (applied via JS toggling .dark class) */
+body.dark .toggle-track { background: rgba(0,0,0,0.35); }
+body.dark .toggle-thumb { transform: translateX(22px); background: var(--accent); }
+
+/* toggle label text */
+.toggle-label { font-size: 0.9rem; opacity: 0.95; }
+
+/* === Main Container === */
+.container { flex: 1; width: 90%; max-width: 1200px; margin: 26px auto; }
+
+/* === Top Panel === */
+.top-panel { display: flex; flex-wrap: wrap; gap: 20px; }
+
+/* === Cards === */
+.form-card, .chart-card {
+  background: var(--card-bg);
+  border-radius: var(--card-radius);
+  padding: 20px;
+  flex: 1;
+  min-width: 300px;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background .2s ease;
+}
+
+.form-card:hover, .chart-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+
+.form-card h2, .chart-card h2 { margin-bottom: 15px; color: var(--accent-2); }
+
+/* === Form === */
+#reportForm { display: flex; flex-direction: column; gap: 12px; }
+#reportForm input, #reportForm textarea {
+  padding: 10px;
+  border: 1px solid var(--form-border);
+  border-radius: 6px;
+  font-size: 15px;
+  resize: none;
+  background: transparent;
+  color: var(--text);
+  transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
+}
+#reportForm input::placeholder, #reportForm textarea::placeholder { color: var(--muted); }
+#reportForm textarea { min-height: 80px; }
+
+#reportForm button {
+  background: linear-gradient(135deg, var(--accent-2), var(--accent));
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform .08s ease;
+}
+#reportForm button:hover { transform: translateY(-1px); }
+
+/* === Chart Section === */
+.chart-card canvas { width: 100%; height: 300px; }
+.refresh-btn { margin-top: 10px; padding: 8px 12px; background: var(--accent); color: white; border: none; border-radius: 6px; cursor: pointer; }
+.refresh-btn:hover { background: #008ecb; }
+
+/* === Reports Section === */
+.reports-section { margin-top: 30px; }
+.reports-section h2 { margin-bottom: 12px; color: var(--accent-2); }
+.reports-grid { display: grid; gap: 15px; }
+
+.report {
+  background: var(--card-bg);
+  padding: 15px;
+  border-left: 5px solid var(--accent-2);
+  border-radius: 8px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.04);
+  transition: box-shadow 0.2s ease, background .15s ease;
+}
+.report:hover { box-shadow: 0 3px 10px rgba(0,0,0,0.08); }
+.report strong { color: var(--accent); }
+.report em { color: var(--accent-2); }
+.report small { color: var(--muted); font-size: 13px; }
+
+/* === Footer === */
+.footer { text-align: center; padding: 15px; background: rgba(0,0,0,0.03); font-size: 14px; color: var(--muted); border-top: 1px solid rgba(0,0,0,0.03); }
+
+/* Small responsive tweaks */
+@media (max-width: 720px) {
+  .nav-inner { flex-direction: column; gap: 8px; align-items: flex-start; }
+  .theme-toggle { align-self: flex-end; }
+  .container { margin: 18px auto; width: 94%; }
+}

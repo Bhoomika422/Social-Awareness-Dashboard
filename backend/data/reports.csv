@@ -1,0 +1,11 @@
+id,title,description,latitude,longitude,category
+1,Open garbage near school,There is a pile of garbage near the primary school,25.3176,82.9739,Sanitation
+2,Stray animals causing risk,Pack of stray dogs attacking people at night,25.3200,82.9700,Safety
+3,Water contamination smell,Strong smell of sewage near the river,25.3180,82.9750,Sanitation
+4,Community fever cases,Several people reported fever in this locality,25.3190,82.9710,Health
+5,Factory smoke causing pollution,Thick smoke from nearby factory affecting air,25.3210,82.9690,Environment
+6,Noise of Construction,Loud construction noise is disturbing sleep near main road.,,,Environment
+7,Garbage waste,Drainage water leaking and causing smell,,,Sanitation
+8,Noise of Machines,Noise of construction machines disturbing the people sleep at night.,26.8466937,80.946166,Environment
+9,Garbage Waste,There is garbage inside the drainage system.,26.8466937,80.946166,Sanitation
+10,Garbage waste,Garbage collecting near home.,25.4746914,81.8581951,Sanitation

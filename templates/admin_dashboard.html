@@ -1,0 +1,67 @@
+<!-- templates/admin_dashboard.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Admin Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-inner">
+      <h1>Admin — Social Awareness</h1>
+      <div class="nav-actions">
+        <span class="admin-user">Hello, {{ admin }}</span>
+        <a href="{{ url_for('admin_logout') }}">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container admin-container">
+    <h2>All Reports</h2>
+    <div id="admin-list" class="admin-list">
+      {% for r in reports %}
+      <div class="admin-row" data-id="{{ r['id'] }}">
+        <div class="admin-left">
+          <strong>{{ r['title'] }}</strong> <em>{{ r['category'] or 'Uncategorized' }}</em>
+          <div class="desc">{{ r['description'] }}</div>
+          {% if r['image_path'] %}
+            <img class="thumb" src="{{ url_for('uploaded_file', filename=r['image_path']) }}" />
+          {% endif %}
+          <small>{{ r['date_reported'] }}</small>
+        </div>
+        <div class="admin-actions">
+          {% if r['status'] != 'approved' %}
+            <button class="approve-btn" data-id="{{ r['id'] }}">Approve</button>
+          {% else %}
+            <span class="badge approved">Approved</span>
+          {% endif %}
+          <button class="delete-btn" data-id="{{ r['id'] }}">Delete</button>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </main>
+
+  <script>
+  // AJAX actions for approve/delete
+  document.addEventListener('click', async (e) => {
+    if (e.target.matches('.approve-btn')) {
+      const id = e.target.dataset.id;
+      if (!confirm('Approve this report?')) return;
+      const res = await fetch('/admin/approve/' + id, { method: 'POST' });
+      if (res.ok) {
+        location.reload();
+      } else { alert('Failed'); }
+    }
+    if (e.target.matches('.delete-btn')) {
+      const id = e.target.dataset.id;
+      if (!confirm('Delete this report?')) return;
+      const res = await fetch('/admin/delete/' + id, { method: 'POST' });
+      if (res.ok) location.reload(); else alert('Failed');
+    }
+  });
+  </script>
+</body>
+</html>

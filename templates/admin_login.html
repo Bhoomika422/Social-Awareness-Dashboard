@@ -1,0 +1,32 @@
+<!-- templates/admin_login.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Admin Login - Social Awareness</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+</head>
+<body>
+  <main class="admin-login">
+    <div class="login-card">
+      <h2>Admin Login</h2>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="flash">
+        {% for category, msg in messages %}
+          <div class="flash-{{ category }}">{{ msg }}</div>
+        {% endfor %}
+        </div>
+      {% endif %}
+      {% endwith %}
+      <form method="POST">
+        <input name="username" placeholder="Username" required />
+        <input name="password" placeholder="Password" type="password" required />
+        <button type="submit">Login</button>
+      </form>
+      <p><a href="{{ url_for('index') }}">Back to Public Site</a></p>
+    </div>
+  </main>
+</body>
+</html>

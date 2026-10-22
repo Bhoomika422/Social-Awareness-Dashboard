@@ -1,0 +1,37 @@
+/* static/css/styles.css - simplified styling used for both public and admin pages */
+
+:root{
+  --bg:#f2f6fa; --card:#fff; --text:#222; --muted:#666; --accent:#00aaff; --accent-2:#00cc99;
+}
+*{box-sizing:border-box;margin:0;padding:0;font-family: 'Segoe UI', Roboto, sans-serif}
+body{background:var(--bg);color:var(--text);min-height:100vh}
+.navbar{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;padding:12px}
+.nav-inner{width:90%;max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.container{width:90%;max-width:1100px;margin:20px auto}
+.top-panel{display:flex;gap:18px;flex-wrap:wrap}
+.form-card,.chart-card{background:var(--card);border-radius:10px;padding:16px;flex:1;min-width:300px;box-shadow:0 2px 10px rgba(0,0,0,0.06)}
+.form-card h2,.chart-card h2{color:var(--accent-2);margin-bottom:10px}
+#reportForm input,#reportForm textarea{width:100%;padding:8px;margin-bottom:8px;border:1px solid #ddd;border-radius:6px}
+.row{display:flex;gap:8px}
+.row input{flex:1}
+button{background:var(--accent);color:white;padding:8px 12px;border:none;border-radius:6px;cursor:pointer}
+.reports-grid{display:grid;gap:12px;margin-top:12px}
+.report{background:var(--card);padding:12px;border-left:5px solid var(--accent-2);border-radius:6px}
+.report strong{color:var(--accent)}
+.report em{color:var(--accent-2)}
+.report small{color:var(--muted)}
+.toast{position:fixed;right:20px;bottom:20px;background:#333;color:#fff;padding:8px 12px;border-radius:8px;display:none;z-index:999}
+
+/* Admin styles */
+.admin-container{padding:10px}
+.admin-list{display:flex;flex-direction:column;gap:10px}
+.admin-row{display:flex;align-items:flex-start;justify-content:space-between;background:var(--card);padding:12px;border-radius:8px;border:1px solid #eee}
+.admin-left .desc{margin-top:6px;color:var(--muted)}
+.admin-actions{display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.badge.approved{background:#e6f9f1;color:#006644;padding:4px 8px;border-radius:6px}
+
+/* small screens */
+@media(max-width:720px){
+  .top-panel{flex-direction:column}
+  .row{flex-direction:column}
+}
