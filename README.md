@@ -45,7 +45,7 @@ An end-to-end full-stack analytics platform built to monitor, analyze, and visua
 
 ## 📁 Project Directory Structure
 
-'''text
+```text
 Social_Awareness_Project_MainDb/
 │
 ├── backend/          # Backend controllers & business logic
@@ -58,7 +58,8 @@ Social_Awareness_Project_MainDb/
 ├── init_db.py        # Database setup & schema initialization script
 ├── reports.db        # SQLite database file
 ├── reports.xlsx      # Exported analytical spreadsheet
-└── requirements.txt  # Python project dependencies '''
+└── requirements.txt  # Python project dependencies
+```
 
 ## 🚀 Installation & Setup
 Follow these steps to set up and run the project locally:
@@ -69,11 +70,11 @@ git clone [https://github.com/Bhoomikasahu1/Social_Awareness_Project_MainDb.git]
 cd Social_Awareness_Project_MainDb
 2. Create & Activate Virtual Environment
 Bash
-# Windows
+## Windows
 python -m venv venv
 venv\Scripts\activate
 
-# macOS / Linux
+## macOS / Linux
 python3 -m venv venv
 source venv/bin/activate
 3. Install Dependencies
@@ -94,12 +95,12 @@ ETL & Transformation: Pandas and NumPy aggregate structured metrics, calculate s
 
 Dashboard Rendering: Processed payloads are passed from Flask backend controllers to templates, rendering dynamic Chart.js plots and visual summary cards.
 
-##🧪 Testing & Validation
+## 🧪 Testing & Validation
 API & Data Payload Validation: Performed functional testing on backend endpoints using structured test payloads to ensure accuracy of JSON responses.
 
 Data Integrity Checks: Verified database transactions and statistical outputs against raw data inputs to prevent data loss or duplicate entry errors.
 
-##🔮 Future Roadmap & Next-Gen AI Integration
+## 🔮 Future Roadmap & Next-Gen AI Integration
 The future scope of this portal focuses on expanding from rule-based text analysis to advanced Generative AI & Multimodal Workflows:
 
 Multimodal Citizen Reporting via Gemini API: Integrating Google Gemini Vision capabilities allowing citizens to upload photos or voice notes of civic issues (e.g., potholes, garbage accumulation). The multimodal LLM will auto-extract geographic context, assess severity, and draft an issue summary.
@@ -110,8 +111,12 @@ Predictive Civic Analytics: Developing predictive ML models to forecast recurrin
 
 Conversational Citizen Assistants: Building RAG-powered natural language chatbots for real-time status tracking and policy inquiry handling in regional languages.
 
-👤 Author
+## 👤 Author
+
 **Bhoomika Sahu**
+
 📧 Email: bhoomikasahu422@gmail.com
-💼 LinkedIn: Bhoomika Sahu
-💻 GitHub: https://github.com/Bhoomika422
+
+💼 LinkedIn: [ Bhoomika Sahu](https://www.linkedin.com/in/bhoomikasahu422/)
+
+💻 GitHub: Bhoomikasahu1
